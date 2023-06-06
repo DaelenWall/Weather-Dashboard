@@ -121,3 +121,11 @@ function loadSearchHistory() {
     const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
     renderSearchHistory(searchHistory);
 }
+
+// Initialize the weather dashboard
+function initWeatherDashboard() {
+    loadSearchHistory();
+}
+
+// Call the initWeatherDashboard function when the page loads
+window.addEventListener('DOMContentLoaded', initWeatherDashboard);
