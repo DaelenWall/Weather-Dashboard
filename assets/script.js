@@ -9,11 +9,33 @@ const forecastInfo = document.getElementById('forecast-info');
 const searchHistoryList = document.getElementById('search-history-list');
 
 // Event listener for city form submission
-cityForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  const cityName = cityInput.value.trim();
-  if (cityName !== '') {
-    getWeatherData(cityName);
-    cityInput.value = '';
-  }
+cityForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const cityName = cityInput.value.trim();
+    if (cityName !== '') {
+        getWeatherData(cityName);
+        cityInput.value = '';
+    }
 });
+
+// Function to fetch weather data from the API
+function getWeatherData(city) {
+    const apiUrl = `${API_BASE_URL}/weather?q=${city}&units=metric&appid=${API_KEY}`;
+
+    fetch(apiUrl)
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Error: ' + response.statusText);
+            }
+        })
+        .then(function (data) {
+            displayCurrentWeather(data);
+            saveCityToLocalStorage(data.name);
+        })
+        .catch(function (error) {
+            console.log(error);
+            alert('Failed to fetch weather data. Please try again.');
+        });
+}
