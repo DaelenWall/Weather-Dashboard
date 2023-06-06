@@ -90,6 +90,23 @@ function getUVIndex(lat, lon) {
         });
 }
 
+// Function to apply color coding based on UV index value
+function applyUVIndexColor(element, uvIndex) {
+    element.classList.remove('uv-index');
+
+    if (uvIndex <= 2) {
+        element.classList.add('uv-low');
+    } else if (uvIndex <= 5) {
+        element.classList.add('uv-moderate');
+    } else if (uvIndex <= 7) {
+        element.classList.add('uv-high');
+    } else if (uvIndex <= 10) {
+        element.classList.add('uv-very-high');
+    } else {
+        element.classList.add('uv-extreme');
+    }
+}
+
 // Function to save the city to local storage
 function saveCityToLocalStorage(city) {
     let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];

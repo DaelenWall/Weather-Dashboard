@@ -95,4 +95,31 @@ main {
 
 #search-history-list li:hover {
     text-decoration: underline;
+    background-color: #4caf50;
+}
+
+/* UV index color coding */
+.uv-low {
+    background-color: #61b15a;
+    color: #fff;
+}
+
+.uv-moderate {
+    background-color: #f8d033;
+    color: #333;
+}
+
+.uv-high {
+    background-color: #f07a35;
+    color: #fff;
+}
+
+.uv-very-high {
+    background-color: #e93f33;
+    color: #fff;
+}
+
+.uv-extreme {
+    background-color: #af2d3e;
+    color: #fff;
 }
