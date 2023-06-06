@@ -49,3 +49,50 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #45a049;
 }
+
+/* Main styles */
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Current weather styles */
+#current-weather {
+    margin-bottom: 20px;
+}
+
+#current-weather h2 {
+    margin-top: 0;
+}
+
+#current-weather-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#current-weather-info>div {
+    width: 48%;
+    margin-bottom: 10px;
+}
+
+#current-weather-info>div:nth-child(2n) {
+    margin-left: 4%;
+}
+
+/* Search history styles */
+#search-history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#search-history-list li {
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+#search-history-list li:hover {
+    text-decoration: underline;
+}
