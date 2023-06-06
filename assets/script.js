@@ -89,3 +89,35 @@ function getUVIndex(lat, lon) {
             return 'N/A';
         });
 }
+
+// Function to save the city to local storage
+function saveCityToLocalStorage(city) {
+    let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+    if (!searchHistory.includes(city)) {
+        searchHistory.push(city);
+        localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+        renderSearchHistory(searchHistory);
+    }
+}
+
+// Function to render the search history list
+function renderSearchHistory(searchHistory) {
+    searchHistoryList.innerHTML = '';
+
+    for (let i = searchHistory.length - 1; i >= 0; i--) {
+        const city = searchHistory[i];
+        const listItem = document.createElement('li');
+        listItem.textContent = city;
+        listItem.addEventListener('click', function () {
+            getWeatherData(city);
+        });
+        searchHistoryList.appendChild(listItem);
+    }
+}
+
+// Function to load search history from local storage
+function loadSearchHistory() {
+    const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    renderSearchHistory(searchHistory);
+}
