@@ -3,8 +3,49 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-  }
-  
-  h1, h2 {
+}
+
+h1,
+h2 {
     margin: 0;
-  }
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+}
+
+header h1 {
+    margin: 0;
+}
+
+#city-form {
+    display: flex;
+    margin-top: 10px;
+}
+
+#city-input {
+    flex-grow: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+}
+
+#city-input:focus {
+    outline: none;
+}
+
+button[type="submit"] {
+    padding: 5px 10px;
+    border: none;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
