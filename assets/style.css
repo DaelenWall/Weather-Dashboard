@@ -84,21 +84,6 @@ main {
     margin-left: 4%;
 }
 
-/* Forecast styles */
-#forecast {
-    margin-bottom: 20px;
-}
-
-#forecast h2 {
-    margin-top: 0;
-}
-
-#forecast-info {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 20px;
-}
-
 /* Search history styles */
 #search-history h2 {
     background-color: #333;
