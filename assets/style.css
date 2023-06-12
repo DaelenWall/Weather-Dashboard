@@ -84,13 +84,27 @@ main {
     margin-left: 4%;
 }
 
-/* Search history styles */
+/* Forecast styles */
+#forecast {
+    margin-bottom: 20px;
+}
 
-#search-history h2{
+#forecast h2 {
+    margin-top: 0;
+}
+
+#forecast-info {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+}
+
+/* Search history styles */
+#search-history h2 {
     background-color: #333;
     padding: 20px;
     color: #fff;
-    
+
 }
 
 #search-history-list {

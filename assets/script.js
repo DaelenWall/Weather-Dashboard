@@ -45,7 +45,7 @@ function displayCurrentWeather(weatherData) {
     const cityName = weatherData.name;
     const date = new Date(weatherData.dt * 1000).toLocaleDateString();
     const weatherIcon = weatherData.weather[0].icon;
-    const temperature = (weatherData.main.temp) * (9 / 5) + 32;
+    const temperature = Math.floor((weatherData.main.temp) * (9 / 5) + 32);
     const humidity = weatherData.main.humidity;
     const windSpeed = weatherData.wind.speed;
     const uvIndex = getUVIndex(weatherData.coord.lat, weatherData.coord.lon);
@@ -64,6 +64,28 @@ function displayCurrentWeather(weatherData) {
 
     currentWeatherInfo.innerHTML = currentWeatherHtml;
 }
+
+// Function to fetch the 5-day forecast data from the API
+function getForecastData(lat, lon) {
+    const apiUrl = `${API_BASE_URL}/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&units=metric&appid=${API_KEY}`;
+  
+    fetch(apiUrl)
+      .then(function(response) {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Error: ' + response.statusText);
+        }
+      })
+      .then(function(data) {
+        const forecastData = data.daily.slice(1, 6); // Extract 5-day forecast data
+        displayForecast(forecastData);
+      })
+      .catch(function(error) {
+        console.log(error);
+        alert('Failed to fetch forecast data. Please try again.');
+      });
+  }
 
 // Function to fetch UV index data from the API
 function getUVIndex(lat, lon) {
